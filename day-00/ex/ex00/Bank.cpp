@@ -63,17 +63,20 @@ void Bank:: printClients()
 
 void Bank:: giveLoan(int id, int amount)
 {
-	if (amount > this->liquidity)
-		std::cout << "Can not loan this amount of money\n";
-	else
+	if (amount > 0)
 	{
-		for(std::vector<Account *>::iterator it = this->clientsAccounts.begin(); it != this->clientsAccounts.end(); it++)
+		if (amount > this->liquidity)
+			std::cout << "Can not loan this amount of money\n";
+		else
 		{
-			if ((*it)->getId() == id)
+			for(std::vector<Account *>::iterator it = this->clientsAccounts.begin(); it != this->clientsAccounts.end(); it++)
 			{
-				(*it)->value += amount;
-				this->liquidity -= amount;
-				break;
+				if ((*it)->getId() == id)
+				{
+					(*it)->value += amount;
+					this->liquidity -= amount;
+					break;
+				}
 			}
 		}
 	}
