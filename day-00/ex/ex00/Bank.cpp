@@ -16,14 +16,14 @@ Bank::~Bank()
     }
 }
 
-void Bank:: createClient()
+void Bank::createClient()
 {
 	this->id++;
 	Account *account = new Account(this->id);
 	this->clientsAccounts.push_back(account);
 }
 
-void Bank:: deleteClient(int id)
+void Bank::deleteClient(int id)
 {
 	for(std::vector<Account *>::iterator it = this->clientsAccounts.begin(); it != this->clientsAccounts.end(); it++)
 	{
@@ -36,7 +36,7 @@ void Bank:: deleteClient(int id)
 	}
 }
 
-void Bank:: depositClient(int id, int amount)
+void Bank::depositClient(int id, int amount)
 {
 	if (amount > 0)
 	{
@@ -52,7 +52,7 @@ void Bank:: depositClient(int id, int amount)
 	}
 }
 
-void Bank:: printClients()
+void Bank::printClients()
 {
 	for(std::vector<Account *>::iterator it = this->clientsAccounts.begin(); it != this->clientsAccounts.end(); it++)
 	{
@@ -61,7 +61,7 @@ void Bank:: printClients()
 	std::cout << "liquidity: " << this->liquidity << std::endl;
 }
 
-void Bank:: giveLoan(int id, int amount)
+void Bank::giveLoan(int id, int amount)
 {
 	if (amount > 0)
 	{
@@ -82,3 +82,14 @@ void Bank:: giveLoan(int id, int amount)
 	}
 }
 
+void Bank::withdrawMoney(int id, int amount)
+{
+	for(std::vector<Account *>::iterator it = this->clientsAccounts.begin(); it != this->clientsAccounts.end(); it++)
+	{
+		if ((*it)->getId() == id && amount > 0 && amount < (*it)->value)
+		{
+			(*it)->value -= (float)amount;
+			break;
+		}
+	}
+}

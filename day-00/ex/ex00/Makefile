@@ -6,14 +6,14 @@
 #    By: bedos-sa <bedos-sa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 22:05:06 by acarneir          #+#    #+#              #
-#    Updated: 2023/10/16 13:40:03 by bedos-sa         ###   ########.fr        #
+#    Updated: 2023/10/17 15:19:53 by bedos-sa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = program
+NAME = ex00
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --tool=memcheck -q ./brainz
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 SRC = main.cpp \
 		Account.cpp \

@@ -10,9 +10,9 @@ class Account
 		float value;
 		Account(int id);
 	public:
-		~Account();
-		int getId()const;
 		int getValue()const;
+		int getId()const;
+		~Account();
 
 	friend class Bank;
 };

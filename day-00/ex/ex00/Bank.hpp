@@ -16,6 +16,7 @@ class Bank
 		void createClient();
 		void deleteClient(int id);
 		void depositClient(int id, int amount);
+		void withdrawMoney(int id, int amount);
 		void giveLoan(int id, int amount);
 	
 		void printClients();
