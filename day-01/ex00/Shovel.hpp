@@ -1,26 +1,19 @@
 #ifndef Shovel_HPP
 #define Shovel_HPP
 
-#include "Worker.hpp"
+#include "Tool.hpp"
 
-class Worker;
-
-class Shovel
+class Shovel : public Tool
 {
-private:
-	
-public:
-	Shovel();
-	~Shovel();
-	void use();
-	Worker *workerUsing;
-	int numberOfUses;
+	private:
+		void use();
+	public:
+		Shovel();
+		~Shovel();
 };
 
-Shovel::Shovel()
+Shovel::Shovel() : Tool()
 {
-	this->numberOfUses = 0;
-	this->workerUsing = NULL;
 }
 
 Shovel::~Shovel()
